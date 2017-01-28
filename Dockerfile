@@ -53,6 +53,9 @@ RUN apk update && \
 
 WORKDIR ${ELASTALERT_HOME}
 
+# Allow user to specify version of elasticsearch for compatability
+RUN sed -i -e "s/'elasticsearch'/'${ELASTICSEARCH_VERSION}'/g" setup.py
+
 # Install Elastalert.
 RUN python setup.py install && \
     pip install -e . && \

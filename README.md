@@ -14,3 +14,4 @@ In addition you may want to add the SYS_NICE capability, in order for ntpd to be
 # Environment
 - SET_CONTAINER_TIMEZONE - Set to "true" (without quotes) to set the tiemzone when starting a container. Default is false.
 - CONTAINER_TIMEZONE - Timezone to use in container. Default is Europe/Stockholm.
+- ELASTICSEARCH_VERSION - Override the default version of elasticsearch installed, e.g. set to elasticsearch<=1.7.0 for legacy compatability
