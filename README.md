@@ -1,6 +1,8 @@
 # Elastalert Docker Image
 Docker image with Elastalert on Alpine Linux.
 
+Elasticsearch is restricted to version <=1.7.0 for legacy compatability.
+
 Requires a link to a Docker container running Elasticsearch using the "elasticsearchhost" alias.
 Assumes the use of port 9200 when communicating with Elasticsearch.<br/>
 In order for the time of the container to be synchronized (ntpd), it must be run with the SYS_TIME capability.
@@ -14,4 +16,3 @@ In addition you may want to add the SYS_NICE capability, in order for ntpd to be
 # Environment
 - SET_CONTAINER_TIMEZONE - Set to "true" (without quotes) to set the tiemzone when starting a container. Default is false.
 - CONTAINER_TIMEZONE - Timezone to use in container. Default is Europe/Stockholm.
-- ELASTICSEARCH_VERSION - Override the default version of elasticsearch installed, e.g. set to elasticsearch<=1.7.0 for legacy compatability

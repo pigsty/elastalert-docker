@@ -31,8 +31,8 @@ ENV ELASTALERT_SUPERVISOR_CONF ${CONFIG_DIR}/elastalert_supervisord.conf
 ENV ELASTICSEARCH_HOST elasticsearchhost
 # Port on above Elasticsearch host. Set in default Elasticsearch configuration file.
 ENV ELASTICSEARCH_PORT 9200
-# Use the latest version of elasticsearch unless specified
-ENV ELASTICSEARCH_VERSION elasticsearch
+# Use elasticsearch <=1.7.0 for legacy compatability
+ENV ELASTICSEARCH_VERSION elasticsearch<=1.7.0
 
 WORKDIR /opt
 
@@ -55,7 +55,7 @@ RUN apk update && \
 
 WORKDIR ${ELASTALERT_HOME}
 
-# Allow user to specify version of elasticsearch for compatability
+# Specify version of elasticsearch for compatability
 RUN sed -i -e "s/'elasticsearch'/'${ELASTICSEARCH_VERSION}'/g" setup.py
 
 # Install Elastalert.
